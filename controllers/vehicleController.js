@@ -23,9 +23,7 @@ const availableVehicles = async (req, res) => {
   }
 
   const duration = calculateDuration(fromPincode, toPincode);
-  console.log(duration, "duration");
   const endTime = new Date(new Date(startTime).getTime() + duration * 3600000);
-  console.log(endTime, "endTime");
 
   const allVehicles = await Vehicle.find({
     capacityKg: { $gte: capacityRequired },
